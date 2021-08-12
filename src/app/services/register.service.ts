@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; 
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
-  registerUser(newName: any, newLastname: any, newPassword: any, newPhone: any, newEmail: any, arg5: any, arg6: { this: any; }) {
-    throw new Error('Method not implemented.');
+export class RegisterService { 
+
+  user: any; 
+  uriBase = ""; 
+
+  registerUser(newName: any, newLastname: any, newPassword: any, newPhone: any, newEmail: any) {
+    return this.http.post<any>(this.uriBase, 
+      { 
+        user: { 
+          newName: newName, 
+          newLastname: newLastname, 
+          newPassword: newPassword, 
+          newPhone: newPhone, 
+          newEmail: newEmail
+        }
+      })
   }
 
-  constructor() { }
+  constructor( private http: HttpClient ) { }
 }

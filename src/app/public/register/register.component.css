@@ -1,0 +1,8 @@
+.regForm { 
+    max-width: 500px; 
+    display: flexbox; 
+    align-items: center;
+} 
+.formField { 
+    width: 100%;
+}

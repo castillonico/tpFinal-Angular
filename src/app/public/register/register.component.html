@@ -1,30 +1,30 @@
 <p>register works!</p>
 
-<form formGroup="regForm">
-    <mat-form-field appearance="fill" formControlName="newName">
+<form formGroup="regForm" class="regForm">
+    <mat-form-field appearance="fill" formControlName="newName" class="formField">
         <mat-label>Nombre</mat-label>
         <input matInput class="formField" type="text">
     </mat-form-field>
 
-    <mat-form-field appearance="fill" formControlName="newLastname">
+    <mat-form-field appearance="fill" formControlName="newLastname" class="formField">
         <mat-label>Apellido</mat-label>
         <input matInput class="formField" type="text">
     </mat-form-field>
 
-    <mat-form-field appearance="fill" formControlName="newPassword">
+    <mat-form-field appearance="fill" formControlName="newPassword" class="formField">
         <mat-label>Password</mat-label>
         <input matInput class="formField" type="password">
     </mat-form-field>
 
-    <mat-form-field appearance="fill" formControlName="newPhone">
+    <mat-form-field appearance="fill" formControlName="newPhone" class="formField">
         <mat-label>Telefono</mat-label>
         <input matInput class="formField" type="phone">
     </mat-form-field>
 
-    <mat-form-field appearance="fill" formControlName="newEmail">
+    <mat-form-field appearance="fill" formControlName="newEmail" class="formField">
         <mat-label>Email</mat-label>
         <input matInput class="formField" type="email">
     </mat-form-field> 
     
-    <button mat-rised-button color="primary"> Crear Usuario </button>
+    <button (click)="createUser()" mat-rised-button color="primary"> Crear Usuario </button>
 </form>
