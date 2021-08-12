@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterService { 
 
   user: any; 
-  uriBase = ""; 
+  uriBase = "https://api-node-express-fullstack.herokuapp.com/users"; 
+
+  constructor( private http: HttpClient ) { }
 
   registerUser(newName: any, newLastname: any, newPassword: any, newPhone: any, newEmail: any) {
     return this.http.post<any>(this.uriBase, 
@@ -22,5 +24,5 @@ export class RegisterService {
       })
   }
 
-  constructor( private http: HttpClient ) { }
+  
 }
