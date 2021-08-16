@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaderResponse } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http'; 
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,6 @@ export class RegisterService {
       newEmail: newEmail,
       active: true
     });
-    return this.http.post<any>(this.uriBase, this.user);
+    return this.http.post<any>(this.uriBase, this.user, { responseType : 'json' });
   };
 };
