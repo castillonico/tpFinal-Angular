@@ -1,6 +1,6 @@
-<p>register works!</p>
 
-<form formGroup="regForm" class="regForm">
+<form formGroup="regForm" class="regForm"> 
+    <h3>Formulario de Registro</h3>
     <mat-form-field appearance="fill" formControlName="newName" class="formField">
         <mat-label>Nombre</mat-label>
         <input matInput class="formField" type="text">
@@ -25,6 +25,5 @@
         <mat-label>Email</mat-label>
         <input matInput class="formField" type="email">
     </mat-form-field> 
-    
-    <button (click)="createUser()" mat-rised-button color="primary"> Crear Usuario </button>
+    <button mat-flat-button color="primary" (click)="createUser()"> Crear Usuario </button>
 </form>

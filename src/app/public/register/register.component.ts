@@ -31,8 +31,9 @@ export class RegisterComponent implements OnInit {
       this.regForm.value.newEmail
     ).subscribe((response:any) => { 
       this.userAuth = response; 
-    }
-    )
+      console.log(this.userAuth); 
+    });
+    
   }; 
 
 }
