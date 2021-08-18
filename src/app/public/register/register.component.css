@@ -5,3 +5,8 @@
 .formField { 
     width: 100%;
 }
+.card { 
+    max-width: 85%;
+    margin: auto;
+    margin-top: 15px;
+}
