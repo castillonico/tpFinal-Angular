@@ -1,1 +1,16 @@
-<p>login works!</p>
+
+<mat-card> 
+    
+    <h3>Login User </h3>
+    <form formGroup="regForm" class="regForm">
+        <mat-form-field appearance="fill" formControlName="newEmail" class="formField">
+            <mat-label>Email</mat-label>
+            <input matInput class="formField" type="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill" formControlName="newPassword" class="formField">
+            <mat-label>Password</mat-label>
+            <input matInput class="formField" type="password">
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="loginUser()"> Login </button>
+    </form>
+</mat-card>
