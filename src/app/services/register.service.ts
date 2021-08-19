@@ -6,20 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
 
-  user: any;
   uriBase = "http://localhost:3000/users";
 
   constructor(private http: HttpClient) { };
 
-  registerUser(newName: string, newLastname: string, newPassword: string, newPhone: string, newEmail: string) {
-    this.user = JSON.stringify({
-      newName: newName,
-      newLastname: newLastname,
-      newPassword: newPassword,
-      newPhone: newPhone,
-      newEmail: newEmail,
-      active: true
-    });
-    return this.http.post<any>(this.uriBase, this.user, { responseType : 'json' });
+  registerUser(user: any) {
+    return this.http.post<any>(this.uriBase, user, { responseType : 'json' });
   };
 };

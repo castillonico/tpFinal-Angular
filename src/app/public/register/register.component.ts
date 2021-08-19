@@ -21,9 +21,8 @@ export class RegisterComponent {
   constructor( private service: RegisterService ) { };
 
   createUser () { 
-    let unNombre = this.regForm.value.newName; 
     this.newUser = JSON.stringify({
-      newName: unNombre,
+      newName: this.regForm.value.newName,
       newLastname: this.regForm.value.newLastName,
       newPassword:this.regForm.value.newPassword, 
       newPhone: this.regForm.value.newPhone, 
@@ -31,13 +30,7 @@ export class RegisterComponent {
       active: true
     }); 
     console.log(this.newUser); 
-    this.service.registerUser ( 
-      this.regForm.value.newName, 
-      this.regForm.value.newLastname, 
-      this.regForm.value.newPassword, 
-      this.regForm.value.newPhone, 
-      this.regForm.value.newEmail
-    ).subscribe((response:any) => { 
+    this.service.registerUser ( this.newUser ).subscribe((response:any) => { 
       this.userAuth = response; 
       console.log(this.userAuth); 
     });
