@@ -10,7 +10,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { };
 
-  registerUser(user: any) {
-    return this.http.post<any>(this.uriBase, user, { responseType : 'json' });
+  registerUser(user: any) { 
+    return this.http.post<any>(this.uriBase, user);
   };
 };

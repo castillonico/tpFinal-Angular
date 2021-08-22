@@ -12,7 +12,11 @@ export class LoginService {
   constructor( private http: HttpClient) { } 
 
   login (user: any) { 
+    
+
+    /*
     this.userLogged = this.http.post (this.urlApi, user); 
     return this.userLogged
+    */
   }
 }

@@ -1,29 +1,29 @@
 <mat-card class="card">
-    <form formGroup="regForm" class="regForm">
+    <form [formGroup]="regForm" class="regForm">
         <h3>Formulario de Registro</h3>
-        <mat-form-field appearance="fill" formControlName="newName" class="formField">
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Nombre</mat-label>
-            <input matInput class="formField" type="text">
+            <input matInput formControlName="newName" class="formField" type="text">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" formControlName="newLastname" class="formField">
+        <mat-form-field appearance="fill"  class="formField">
             <mat-label>Apellido</mat-label>
-            <input matInput class="formField" type="text">
+            <input matInput formControlName="newLastName" class="formField" type="text">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" formControlName="newPassword" class="formField">
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Password</mat-label>
-            <input matInput class="formField" type="password">
+            <input matInput formControlName="newPassword" class="formField" type="password">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" formControlName="newPhone" class="formField">
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Telefono</mat-label>
-            <input matInput class="formField" type="phone">
+            <input matInput formControlName="newPhone" class="formField" type="phone">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" formControlName="newEmail" class="formField">
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Email</mat-label>
-            <input matInput class="formField" type="email">
+            <input matInput formControlName="newEmail" class="formField" type="email">
         </mat-form-field>
         <button mat-flat-button color="primary" (click)="createUser()"> Crear Usuario </button>
     </form>

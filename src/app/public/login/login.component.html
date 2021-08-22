@@ -1,14 +1,15 @@
 <mat-card class="card">
-    <form formGroup="regForm" class="regForm">
-        <h3> Ingreso Usuarios </h3>
-        <mat-form-field appearance="fill" formControlName="newEmail" class="formField">
+    <form [formGroup]="loginForm" class="regForm">
+        <h3>Formulario de Registro</h3>
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Email</mat-label>
-            <input matInput class="formField" type="email">
+            <input matInput formControlName="email" class="formField" type="email">
         </mat-form-field>
-        <mat-form-field appearance="fill" formControlName="newPassword" class="formField">
+        <mat-form-field appearance="fill" class="formField">
             <mat-label>Password</mat-label>
-            <input matInput class="formField" type="password">
+            <input matInput formControlName="password" class="formField" type="password">
         </mat-form-field>
-        <button mat-flat-button color="primary" (click)="loginUser()"> Login </button>
+
+        <button mat-flat-button color="primary" (click)="login()"> Crear Usuario </button>
     </form>
 </mat-card>
