@@ -17,26 +17,26 @@ export class RegisterComponent {
     newPassword: new FormControl(),
     newPhone: new FormControl(),
     newEmail: new FormControl()
-  }); 
-  
+  });
+
   constructor(private service: RegisterService) { };
 
-  createUser() { 
-    this.newUser = { 
-      name: this.regForm.value.newName, 
-      lastName: this.regForm.value.newLastName, 
-      password: this.regForm.value.newPassword, 
-      phone: this.regForm.value.newPhone, 
-      email: this.regForm.value.newEmail, 
+  createUser() {
+    this.newUser = {
+      name: this.regForm.value.newName,
+      lastName: this.regForm.value.newLastName,
+      password: this.regForm.value.newPassword,
+      phone: this.regForm.value.newPhone,
+      email: this.regForm.value.newEmail,
       active: true
-  };
+    };
     console.log(this.newUser);
     this.service.registerUser(this.newUser).subscribe((res: any) => {
-      console.log (res); 
+      console.log(res);
       this.userAuth = res;
       console.log(this.userAuth);
     });
-
+    this.regForm.reset();
   };
 
 }
