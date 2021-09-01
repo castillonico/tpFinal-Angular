@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
  
 export class LoginComponent {
 
+  token = "";
   user: any;
   loginForm = new FormGroup({
     email: new FormControl(),
@@ -20,12 +21,14 @@ export class LoginComponent {
 
   login () { 
     this.user = { 
-      email: this.loginForm.value.logEmail, 
-      password: this.loginForm.value.logPassword
-    }; 
+      email: this.loginForm.value.email, 
+      password: this.loginForm.value.password
+    };
     this.loginForm.reset(); 
-    this.service.login(this.user).subscribe((res: any)=> { 
-      console.log(res)
+    this.service.login(this.user).subscribe((res: any) => { 
+      console.log(res); 
+      this.token = JSON.stringify(res.token);
+      localStorage.setItem("token", this.token)
     }); 
   }; 
 

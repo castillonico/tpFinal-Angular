@@ -33,8 +33,6 @@ export class RegisterComponent {
     console.log(this.newUser);
     this.service.registerUser(this.newUser).subscribe((res: any) => {
       console.log(res);
-      this.userAuth = res;
-      console.log(this.userAuth);
     });
     this.regForm.reset();
   };

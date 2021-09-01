@@ -6,14 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
+  
   userLogged: any;
-  baseUrl = "localHost:3000/user/";
+  uri = "http://localhost:3000/login";
 
   constructor(private http: HttpClient) { }
 
   login(user: any) {
-    let urlApi = this.baseUrl + user.email;
-    this.userLogged = this.http.post(urlApi, user);
-    return this.userLogged
+    console.log("los datos a usar son: "); 
+    console.log("uri Base: ", this.uri); 
+    console.log("el usuario en el servicio es: ", user); 
+    return this.http.post<any>(this.uri, user)
   }
 }
