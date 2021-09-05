@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'; 
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,8 @@ export class LoginComponent {
     password: new FormControl()
   }); 
 
-  constructor( private service: LoginService ) { 
+  constructor( private service: LoginService, 
+              private router: Router ) { 
   }
 
   login () { 
@@ -28,8 +30,14 @@ export class LoginComponent {
     this.service.login(this.user).subscribe((res: any) => { 
       console.log(res); 
       this.token = JSON.stringify(res.token);
-      localStorage.setItem("token", this.token)
+      localStorage.setItem("token", this.token);
+      if(localStorage.getItem("token")){ 
+        console.log("Token de usuario guardado en el navegador")
+      } else { 
+        console.log("No se guardaron datos del usuario")
+      }
     }); 
+    this.router.navigate(['/users'])
   }; 
 
 }

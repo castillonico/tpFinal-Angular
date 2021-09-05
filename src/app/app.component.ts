@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tpFinal';
+
+  logOut() { 
+    localStorage.removeItem("token");
+    console.log("Elimino datos de inicio de sesión")
+  }; 
+
 }

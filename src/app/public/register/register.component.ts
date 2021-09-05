@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { RegisterService } from 'src/app/services/register.service';
+import { RegisterService } from 'src/app/services/register.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class RegisterComponent {
 
+   
   userAuth: any;
   newUser: any;
   regForm = new FormGroup({
@@ -19,7 +21,9 @@ export class RegisterComponent {
     newEmail: new FormControl()
   });
 
-  constructor(private service: RegisterService) { };
+  constructor(private service: RegisterService, 
+              private router: Router        
+  ){ };
 
   createUser() {
     this.newUser = {
@@ -34,7 +38,7 @@ export class RegisterComponent {
     this.service.registerUser(this.newUser).subscribe((res: any) => {
       console.log(res);
     });
-    this.regForm.reset();
+    this.router.navigate(['/login'])
   };
 
 }

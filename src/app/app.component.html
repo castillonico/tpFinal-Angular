@@ -1,8 +1,29 @@
-<nav id="navBar">
-    <button [routerLink]="'home'" mat-flat-button color="primary" class="buttons">Inicio</button> 
-    <button [routerLink]="'users'" mat-flat-button color="primary" class="buttons">Usuarios</button> 
-    <button [routerLink]="'login'" mat-flat-button color="primary" class="buttons">Ingresar</button> 
-    <button [routerLink]="'register'" mat-flat-button color="primary" class="buttons">Registro</button>
-</nav>
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" [routerLink]="'home'">TP Final FullStack</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="'home'">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'login'">Ingresar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'register'">Registrarse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'users'">Usuarios</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" (click)="logOut()" [routerLink]="'home'">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <router-outlet></router-outlet>

@@ -9,7 +9,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class UsersComponent implements OnInit {
 
   arrayUsers: any; 
-  displayedColumns = ["name", "lastName", "phone", "email", "active"]; 
+  displayedColumns = ["name", "email", "active"]; 
   constructor(private service: UsersService) { }
 
   ngOnInit(): void {
