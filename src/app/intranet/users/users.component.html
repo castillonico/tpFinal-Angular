@@ -1,21 +1,9 @@
-<table mat-table [dataSource]="arrayUsers" class="mat-elevation-z8">
+<mat-card class="listUsers">
     <h3> Lista de Usuarios </h3>
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef> Apellido </th>
-        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-    </ng-container>
-    <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> E-mail </th>
-        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-    </ng-container>
-    <ng-container matColumnDef="active">
-        <th mat-header-cell *matHeaderCellDef> Estado Activo </th>
-        <td mat-cell *matCellDef="let element"> {{element.active}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <mat-card class="container">
+        <mat-card class="userCard" *ngFor="let item of arrayUsers" (click)= "detailsUser(item)">
+            <h4>{{item.name}}</h4>
+            <h5>{{item.email}}</h5>
+        </mat-card>
+    </mat-card>
+</mat-card>

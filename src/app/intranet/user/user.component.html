@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>{{user.name}}</h2>
+    <h3>{{user.lastName}}</h3>
+    <h5>{{user.email}}</h5>
+    <p>Active: {{user.active}}</p>
+    <mat-slide-toggle (change)="active($event)">Slide me!</mat-slide-toggle>
+    <button mat-raised-button color="primary" (click)="eraseUser()">Delete</button>
+</div>

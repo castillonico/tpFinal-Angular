@@ -1,4 +1,20 @@
-table {
-    width: 80%;
-    margin: auto;
+.listUsers { 
+    max-width: 95%; 
+    display: flexbox;
+    align-items: center;
+}
+.container { 
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 95%; 
+    align-items: center;
+    justify-content: center;
+} 
+.userCard { 
+    width: 180px; 
+    margin: 8px;
+    display: flexbox; 
+    align-items: center;
+    justify-content: center;
 }

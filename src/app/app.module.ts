@@ -11,6 +11,7 @@ import { UsersComponent } from './intranet/users/users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserComponent } from './intranet/user/user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     HomeComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
