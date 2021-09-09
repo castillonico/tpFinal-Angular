@@ -1,8 +1,12 @@
 <div class="container">
     <h2>{{user.name}}</h2>
-    <h3>{{user.lastName}}</h3>
-    <h5>{{user.email}}</h5>
-    <p>Active: {{user.active}}</p>
-    <mat-slide-toggle (change)="active($event)">Slide me!</mat-slide-toggle>
-    <button mat-raised-button color="primary" (click)="eraseUser()">Delete</button>
+    <h2>{{user.lastName}}</h2>
+    <h5 (click)="changeEmail()">Email: {{user.email}}</h5>
+    <p>Active: {{user.active}}</p><br>
+    <div class="actions">
+        <button mat-raised-button color="basic" (click)="toggleActive()" class="buttons">Active</button>
+        <button mat-raised-button color="warn" (click)="eraseUser()" class="buttons">Delete</button>
+        <button mat-raised-button color="primary" (click)="closePopUp()" class="buttons">Close</button>
+    </div>
+
 </div>

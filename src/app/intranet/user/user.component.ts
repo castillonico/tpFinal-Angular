@@ -1,7 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 import { UsersService } from 'src/app/services/users.service';
 
@@ -12,13 +10,13 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserComponent implements OnInit {
 
+  @Output() userModified: any;
   user: any;
-  res= new EventEmitter; 
   constructor(private service: UsersService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.user = this.service.userActive;
-    this.active = this.user.active; 
+    console.log(this.user);
   }
 
   eraseUser() {
@@ -28,10 +26,19 @@ export class UserComponent implements OnInit {
       this._snackBar.open(message);
     })
   }
-  active($event: MatSlideToggleChange){ 
-    this.res.emit($event); 
-    console.log($event); 
+
+  changeEmail() {
+
   }
+  toggleActive() {
+    this.user.active = !this.user.active;
+  }
+
+  closePopUp() {
+    this.service.closePopUp();
+  }
+
 }
+
 
 

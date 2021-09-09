@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserComponent } from '../intranet/user/user.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,38 +9,46 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   uriBase = "http://localhost:3000";
-  headers = new HttpHeaders; 
+  headers = new HttpHeaders;
   token: any;
-  listUsers = []; 
-  userActive: any; 
+  listUsers = [];
+  userActive: any;
+  popUp: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialog: MatDialog) { }
 
-  getUsers() { 
+  getUsers() {
     this.token = localStorage.getItem("token");
     this.headers = this.headers.set("Token", JSON.parse(this.token));
-    console.log("el dato almacenado es: ", this.token); 
-    console.log("el header queda: ", this.headers); 
-    const uri = this.uriBase + "/users"; 
-    const listUsers = this.http.get(uri, {headers: this.headers});
-    return listUsers; 
-  }; 
+    console.log("el dato almacenado es: ", this.token);
+    console.log("el header queda: ", this.headers);
+    const uri = this.uriBase + "/users";
+    const listUsers = this.http.get(uri, { headers: this.headers });
+    return listUsers;
+  };
 
-  activeUser (user: any) { 
-    this.userActive = user; 
+  activeUser(user: any) {
+    this.userActive = user;
+    this.popUp = this.dialog.open(UserComponent)
   }
 
-  updateUser (user: any) { 
-    const uri = this.uriBase + "/user" + user._id; 
+  closePopUp() {
+    this.popUp.close();
+  };
+
+  updateUser(user: any) {
+    const uri = this.uriBase + "/user" + user._id;
     return this.http.put(uri, user)
-  } 
-  
-  deleteUser (_id: any) { 
+  }
+
+  deleteUser(_id: any) {
     this.token = localStorage.getItem("token");
     this.headers = this.headers.set("Token", JSON.parse(this.token));
-    const uri = this.uriBase + "/user/" + _id; 
+    const uri = this.uriBase + "/user/" + _id;
     console.log("en el service recibimos: ", _id);
-    console.log("La uri que vamos a usar es: ", uri); 
-    return this.http.delete(uri, {headers: this.headers})
+    console.log("La uri que vamos a usar es: ", uri);
+    return this.http.delete(uri, { headers: this.headers })
   }
+
+
 }
