@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { UsersService } from 'src/app/services/users.service';
 
@@ -12,7 +11,7 @@ export class UserComponent implements OnInit {
 
   @Output() userModified: any;
   user: any;
-  constructor(private service: UsersService, private _snackBar: MatSnackBar) { }
+  constructor(private service: UsersService) { }
 
   ngOnInit(): void {
     this.user = this.service.userActive;
@@ -22,9 +21,9 @@ export class UserComponent implements OnInit {
   eraseUser() {
     console.log(this.user);
     this.service.deleteUser(this.user._id).subscribe(res => {
-      const message = JSON.stringify(res);
-      this._snackBar.open(message);
-    })
+      console.log(res)
+    });
+    this.service.getUsers();
   }
 
   changeEmail() {

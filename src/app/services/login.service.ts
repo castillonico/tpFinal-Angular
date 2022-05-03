@@ -8,7 +8,7 @@ export class LoginService {
 
   
   userLogged: any;
-  uri = "http://localhost:3000/login";
+  uri = "https://tpfinal-fullstack.herokuapp.com/login";
 
   constructor(private http: HttpClient) { }
 

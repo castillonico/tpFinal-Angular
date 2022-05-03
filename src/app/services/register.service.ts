@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterService {
 
-  uriBase = "http://localhost:3000/user";
+  uriBase = "https://tpfinal-fullstack.herokuapp.com/user";
 
   constructor(private http: HttpClient) { };
 

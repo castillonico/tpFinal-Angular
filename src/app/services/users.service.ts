@@ -8,7 +8,7 @@ import { UserComponent } from '../intranet/user/user.component';
 })
 export class UsersService {
 
-  uriBase = "http://localhost:3000";
+  uriBase = "https://tpfinal-fullstack.herokuapp.com/";
   headers = new HttpHeaders;
   token: any;
   listUsers = [];
@@ -22,7 +22,7 @@ export class UsersService {
     this.headers = this.headers.set("Token", JSON.parse(this.token));
     console.log("el dato almacenado es: ", this.token);
     console.log("el header queda: ", this.headers);
-    const uri = this.uriBase + "/users";
+    const uri = this.uriBase + "users";
     const listUsers = this.http.get(uri, { headers: this.headers });
     return listUsers;
   };
@@ -47,6 +47,7 @@ export class UsersService {
     const uri = this.uriBase + "/user/" + _id;
     console.log("en el service recibimos: ", _id);
     console.log("La uri que vamos a usar es: ", uri);
+    this.closePopUp(); 
     return this.http.delete(uri, { headers: this.headers })
   }
 
