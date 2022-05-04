@@ -8,7 +8,7 @@ import { UserComponent } from '../intranet/user/user.component';
 })
 export class UsersService {
 
-  uriBase = "https://tpfinal-fullstack.herokuapp.com/";
+  uriBase = "https://frozen-peak-97534.herokuapp.com/";
   headers = new HttpHeaders;
   token: any;
   listUsers = [];
@@ -20,7 +20,7 @@ export class UsersService {
   getUsers() {
     this.token = localStorage.getItem("token");
     this.headers = this.headers.set("Token", JSON.parse(this.token));
-    console.log("el dato almacenado es: ", this.token);
+    console.log("el Token almacenado es: ", this.token);
     console.log("el header queda: ", this.headers);
     const uri = this.uriBase + "users";
     const listUsers = this.http.get(uri, { headers: this.headers });
@@ -37,14 +37,14 @@ export class UsersService {
   };
 
   updateUser(user: any) {
-    const uri = this.uriBase + "/user" + user._id;
+    const uri = this.uriBase + "user" + user._id;
     return this.http.put(uri, user)
   }
 
   deleteUser(_id: any) {
     this.token = localStorage.getItem("token");
     this.headers = this.headers.set("Token", JSON.parse(this.token));
-    const uri = this.uriBase + "/user/" + _id;
+    const uri = this.uriBase + "user/" + _id;
     console.log("en el service recibimos: ", _id);
     console.log("La uri que vamos a usar es: ", uri);
     this.closePopUp(); 
